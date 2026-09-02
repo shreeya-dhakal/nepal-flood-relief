@@ -158,33 +158,6 @@ if (helplines) {
   }
 }
 
-/* ── needs ── */
-const needs = read('needs');
-if (needs) {
-  if (needs.as_of !== null && !isDate(needs.as_of)) {
-    err('needs.json', 'as_of must be null or a YYYY-MM-DD date');
-  }
-  const total = (needs.needed?.length ?? 0) + (needs.not_needed?.length ?? 0);
-  if (total > 0 && !isUrl(needs.source_url)) {
-    err('needs.json', 'a needs list must cite the responder it came from in source_url');
-  }
-  for (const list of ['needed', 'not_needed']) {
-    for (const [i, n] of (needs[list] ?? []).entries()) {
-      if (!n.item) err('needs.json', `${list}[${i}].item is empty`);
-    }
-  }
-}
-
-/* ── updates ── */
-const updates = read('updates');
-if (updates) {
-  for (const [i, u] of (updates.entries ?? []).entries()) {
-    if (!isDate(u.date)) err('updates.json', `entries[${i}].date is not a YYYY-MM-DD date`);
-    if (!u.text) err('updates.json', `entries[${i}].text is empty`);
-    if (u.url && !isUrl(u.url)) err('updates.json', `entries[${i}].url is not a link`);
-  }
-}
-
 /* ── impact ── */
 /* Casualty and damage counts follow the same rule as money: a number the
    reader might repeat onward has to carry the link it came from. */

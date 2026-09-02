@@ -1,7 +1,7 @@
 # nepal-flood-relief
 
 Crowdsourced data behind the flood relief tracker at
-**[icodeformybhasa.com/nepal-floods](https://icodeformybhasa.com/nepal-floods)**.
+**[signedbysd.com/nepal-floods](https://signedbysd.com/nepal-floods)**.
 
 Everything on that page is rendered from the JSON files in [`data/`](data/).
 There is no database and no CMS. Edit a file here, get it merged, and the page
