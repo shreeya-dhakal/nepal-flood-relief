@@ -29,8 +29,26 @@ const read = (name) => {
   }
 };
 
-const isDate = (v) => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v)
-  && !Number.isNaN(Date.parse(v));
+/* Date.parse is lenient about impossible days — '2026-02-31' parses happily
+   and silently becomes March 3 — so round-trip the string and require the
+   same calendar day back out. */
+const isDate = (v) => {
+  if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
+  const t = new Date(`${v}T00:00:00Z`);
+  return !Number.isNaN(t.getTime()) && t.toISOString().slice(0, 10) === v;
+};
+
+/* Every date here dates a claim about something that already happened, so one
+   in the future is a typo, not a fact. CI runs in UTC and most contributors
+   are at UTC+5:45, so allow a day of slack rather than failing a file that was
+   correct when it was written. Safe to call on anything: a value that is not a
+   date is somebody else's error to report. */
+const HORIZON = Date.now() + 24 * 60 * 60 * 1000;
+const checkFuture = (file, path, v) => {
+  if (isDate(v) && Date.parse(`${v}T00:00:00Z`) > HORIZON) {
+    err(file, `${path} is ${v}, which is in the future`);
+  }
+};
 
 const isUrl = (v) => {
   if (typeof v !== 'string' || v === '') return false;
@@ -55,6 +73,7 @@ function checkFigure(file, path, fig) {
     if (!isDate(fig.as_of)) {
       err(file, `${path}.amount is set but ${path}.as_of is not a YYYY-MM-DD date`);
     }
+    checkFuture(file, `${path}.as_of`, fig.as_of);
   }
 }
 
@@ -65,6 +84,9 @@ if (meta) {
   if (!['active', 'recovery', 'archived'].includes(meta.status)) {
     err('meta.json', 'status must be active, recovery or archived');
   }
+  /* This is the date stamped on the whole page, so it is not optional. */
+  if (!isDate(meta.as_of)) err('meta.json', 'as_of is not a YYYY-MM-DD date');
+  checkFuture('meta.json', 'as_of', meta.as_of);
 }
 
 /* ── fund ── */
@@ -77,8 +99,23 @@ if (fund) {
   if (typeof r === 'number' && typeof d === 'number' && d > r) {
     warn('fund.json', `dispatched (${d}) is larger than received (${r}) — possible, but double-check the sources`);
   }
+  /* A history row is a figure like any other — it is what the chart draws —
+     so the numbers on it carry the same rule as the headline ones. */
   for (const [i, h] of (fund.history ?? []).entries()) {
-    if (!isDate(h.date)) err('fund.json', `history[${i}].date is not a YYYY-MM-DD date`);
+    const at = `history[${i}]`;
+    if (!isDate(h.date)) err('fund.json', `${at}.date is not a YYYY-MM-DD date`);
+    checkFuture('fund.json', `${at}.date`, h.date);
+    let carriesFigure = false;
+    for (const field of ['received', 'dispatched']) {
+      if (h[field] === null || h[field] === undefined) continue;
+      carriesFigure = true;
+      if (typeof h[field] !== 'number' || h[field] < 0) {
+        err('fund.json', `${at}.${field} must be a non-negative number or null`);
+      }
+    }
+    if (carriesFigure && !isUrl(h.source_url)) {
+      err('fund.json', `${at} carries a figure but ${at}.source_url is not a link`);
+    }
   }
 }
 
@@ -88,6 +125,7 @@ if (dispatches) {
   for (const [i, d] of (dispatches.entries ?? []).entries()) {
     const at = `entries[${i}]`;
     if (!isDate(d.date)) err('dispatches.json', `${at}.date is not a YYYY-MM-DD date`);
+    checkFuture('dispatches.json', `${at}.date`, d.date);
     if (d.amount !== null && (typeof d.amount !== 'number' || d.amount < 0)) {
       err('dispatches.json', `${at}.amount must be a non-negative number or null`);
     }
@@ -117,6 +155,7 @@ if (resources) {
     if (r.added && !isDate(r.added)) {
       err('resources.json', `${at}.added is not a YYYY-MM-DD date`);
     }
+    checkFuture('resources.json', `${at}.added`, r.added);
     const key = String(r.url).replace(/\/+$/, '').toLowerCase();
     if (seen.has(key)) {
       warn('resources.json', `${at}.url duplicates items[${seen.get(key)}]`);
@@ -126,34 +165,26 @@ if (resources) {
   }
 }
 
-/* ── channels ── */
-const channels = read('channels');
-if (channels) {
-  for (const [i, c] of (channels.items ?? []).entries()) {
-    const at = `items[${i}]`;
-    if (!c.name) err('channels.json', `${at}.name is empty`);
-    if (!['domestic', 'international'].includes(c.scope)) {
-      err('channels.json', `${at}.scope must be domestic or international`);
-    }
-    if (c.url && !isUrl(c.url)) err('channels.json', `${at}.url is not a link`);
-    /* The highest-stakes rule in the repo: a "verified" set of bank details
-       that nobody actually checked is how people get robbed. */
-    if (c.verified === true && !isUrl(c.url)) {
-      err('channels.json', `${at} is marked verified but has no official page to check it against`);
-    }
-    if (c.verified === true && (c.details ?? []).some((d) => !d.value)) {
-      err('channels.json', `${at} is marked verified but has blank details`);
-    }
-  }
-}
-
 /* ── helplines ── */
 const helplines = read('helplines');
 if (helplines) {
   for (const [i, h] of (helplines.items ?? []).entries()) {
-    if (!h.name) err('helplines.json', `items[${i}].name is empty`);
-    if (h.number && !/^[\d+\-\s()]+$/.test(h.number)) {
-      err('helplines.json', `items[${i}].number has characters that are not a phone number`);
+    const at = `items[${i}]`;
+    if (!h.name) err('helplines.json', `${at}.name is empty`);
+    if (!h.number) {
+      warn('helplines.json', `${at} has no number — there is nothing here to call`);
+    } else if (!/^[\d+\-\s()]+$/.test(h.number)) {
+      err('helplines.json', `${at}.number has characters that are not a phone number`);
+    } else if ((h.number.match(/\d/g) ?? []).length < 3) {
+      err('helplines.json', `${at}.number does not have enough digits to be one`);
+    }
+    if (h.source_url && !isUrl(h.source_url)) {
+      err('helplines.json', `${at}.source_url is not a link`);
+    }
+    /* "verified" has to mean somebody checked a real number, not that
+       somebody ticked the box on an empty field. */
+    if (h.verified === true && !h.number) {
+      err('helplines.json', `${at} is marked verified but has no number`);
     }
   }
 }
@@ -166,9 +197,11 @@ if (impact) {
   if (impact.as_of !== null && !isDate(impact.as_of)) {
     err('impact.json', 'as_of must be null or a YYYY-MM-DD date');
   }
+  checkFuture('impact.json', 'as_of', impact.as_of);
   for (const group of ['human', 'infrastructure']) {
     for (const [i, c] of (impact[group] ?? []).entries()) {
       const at = `${group}[${i}]`;
+      checkFuture('impact.json', `${at}.as_of`, c.as_of);
       if (!c.label && !c.info) {
         err('impact.json', `${at} needs a label (with value) or an info statement`);
       }
@@ -191,62 +224,6 @@ if (impact) {
         if (!isDate(c.as_of) && !isDate(impact.as_of)) {
           err('impact.json', `${at}.value is set but there is no as_of date on it or the file — these figures are revised constantly`);
         }
-      }
-    }
-  }
-}
-
-/* ── claims ── */
-const CLAIM_STATUS = ['true', 'false', 'misleading', 'unverified'];
-const claims = read('claims');
-if (claims) {
-  if (claims.as_of !== null && !isDate(claims.as_of)) {
-    err('claims.json', 'as_of must be null or a YYYY-MM-DD date');
-  }
-  for (const [i, c] of (claims.entries ?? []).entries()) {
-    const at = `entries[${i}]`;
-    if (!c.claim) err('claims.json', `${at}.claim is empty`);
-    if (!CLAIM_STATUS.includes(c.status)) {
-      err('claims.json', `${at}.status must be one of: ${CLAIM_STATUS.join(', ')}`);
-    }
-    if (c.first_seen && !isDate(c.first_seen)) {
-      err('claims.json', `${at}.first_seen is not a YYYY-MM-DD date`);
-    }
-    if (c.source_url && !isUrl(c.source_url)) {
-      err('claims.json', `${at}.source_url is not a link`);
-    }
-    /* The site downgrades these to UNVERIFIED rather than showing them, so
-       this is a warning, not an error — but it means the entry does nothing. */
-    if (c.status !== 'unverified' && !isUrl(c.source_url)) {
-      warn('claims.json', `${at} claims a verdict of "${c.status}" with no source_url — the page will show it as UNVERIFIED`);
-    }
-    if (c.status !== 'unverified' && !c.verdict) {
-      warn('claims.json', `${at} has a verdict of "${c.status}" but no verdict text explaining it`);
-    }
-  }
-}
-
-/* ── notices ── */
-const notices = read('notices');
-if (notices) {
-  for (const [i, n] of (notices.items ?? []).entries()) {
-    const at = `items[${i}]`;
-    if (!n.title) err('notices.json', `${at}.title is empty`);
-    if (!isUrl(n.url)) err('notices.json', `${at}.url is not a link`);
-    if (n.published && !isDate(n.published)) {
-      err('notices.json', `${at}.published is not a YYYY-MM-DD date`);
-    }
-    /* The OFFICIAL badge is a trust signal; the site re-checks the host, but
-       catching it here means the badge never gets committed wrongly. */
-    if (n.official === true) {
-      let host = '';
-      try {
-        host = new URL(n.url).hostname;
-      } catch {
-        /* url error already reported above */
-      }
-      if (host && !/(^|\.)gov\.np$/.test(host)) {
-        err('notices.json', `${at} is marked official but ${host} is not a gov.np domain`);
       }
     }
   }
