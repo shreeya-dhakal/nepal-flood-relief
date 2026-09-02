@@ -8,7 +8,7 @@
       "org": "@mali_schild",
       "description": "An open spreadsheet pulling the fundraisers collecting for Nepal into one place, so you can compare who is raising what before you send anything. Maintained by @mali_schild on Instagram.",
       "added": "2026-09-01",
-      "verified": false
+      "verified": true
     },
     {
       "title": "Relief required — report a need",
@@ -18,7 +18,7 @@
       "org": "@baatomaps + @impact.447",
       "description": "A form for reporting where relief is still needed and what kind, feeding a mapping effort run by @baatomaps and @impact.447 on Instagram. Use it if you are on the ground or in contact with somebody who is.",
       "added": "2026-09-01",
-      "verified": false
+      "verified": true
     },
     {
       "title": "Relief dispatched — log a delivery",
@@ -28,7 +28,7 @@
       "org": "@baatomaps + @impact.447",
       "description": "The other half of the same effort: log relief you have already sent or delivered, so the same ward is not covered five times while another is missed.",
       "added": "2026-09-01",
-      "verified": false
+      "verified": true
     }
   ]
 }
