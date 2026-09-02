@@ -14,7 +14,7 @@
     "as_of": "2026-09-01",
     "source_url": "https://radionepalonline.com/en/2026/09/01/435208.html",
     "source_label": "Radio Nepal",
-    "note": "Released for flood-affected areas, leaving a balance of Rs 5.36 billion."
+    "note": "Released for flood-affected areas, leaving a balance of Rs 536 crore."
   },
   "history": [
     {
@@ -35,5 +35,12 @@
       "dispatched": 1000000000,
       "source_url": "https://radionepalonline.com/en/2026/09/01/435208.html"
     }
-  ]
+  ],
+  "recovery_estimate": {
+    "amount": 762000000000,
+    "as_of": "2026-08-30",
+    "source_url": "https://kathmandupost.com/national/2026/08/30/relief-priority-but-government-assessing-damage-inflicted-by-bhotekoshi-floods",
+    "source_label": "Kathmandu Post",
+    "note": "Preliminary estimate of $4–5 billion to rebuild, cited by Finance Minister Swarnim Wagle."
+  }
 }

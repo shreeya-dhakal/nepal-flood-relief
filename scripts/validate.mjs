@@ -94,6 +94,7 @@ const fund = read('fund');
 if (fund) {
   checkFigure('fund.json', 'received', fund.received);
   checkFigure('fund.json', 'dispatched', fund.dispatched);
+  if (fund.recovery_estimate) checkFigure('fund.json', 'recovery_estimate', fund.recovery_estimate);
   const r = fund.received?.amount;
   const d = fund.dispatched?.amount;
   if (typeof r === 'number' && typeof d === 'number' && d > r) {

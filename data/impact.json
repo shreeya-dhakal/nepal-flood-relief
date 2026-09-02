@@ -4,6 +4,17 @@
   "source_label": "",
   "human": [
     {
+      "label": "People affected",
+      "label_ne": "",
+      "value": null,
+      "unit": "",
+      "info": "Nearly 1.6 million",
+      "as_of": "2026-09-01",
+      "source_url": "https://kathmandupost.com/national/2026/09/01/1-6-million-affected-by-bhotekoshi-floods-says-government-report",
+      "source_label": "Kathmandu Post",
+      "note": ""
+    },
+    {
       "label": "Killed",
       "label_ne": "",
       "value": 1050,
@@ -48,28 +59,6 @@
       "note": "79 still under treatment, 210 discharged."
     },
     {
-      "label": "People affected",
-      "label_ne": "",
-      "value": null,
-      "unit": "",
-      "info": "Nearly 1.6 million",
-      "as_of": "2026-09-01",
-      "source_url": "https://kathmandupost.com/national/2026/09/01/1-6-million-affected-by-bhotekoshi-floods-says-government-report",
-      "source_label": "Kathmandu Post",
-      "note": ""
-    },
-    {
-      "label": "Districts affected",
-      "label_ne": "",
-      "value": 5,
-      "unit": "districts",
-      "info": "",
-      "as_of": "2026-09-01",
-      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
-      "source_label": "NDRRMA SitRep #01",
-      "note": "Rasuwa and Nuwakot severely affected; Dhading, Gorkha and Chitwan moderately."
-    },
-    {
       "label": "Households isolated",
       "label_ne": "",
       "value": 3702,
@@ -94,6 +83,28 @@
   ],
   "infrastructure": [
     {
+      "label": "Rebuilding cost",
+      "label_ne": "",
+      "value": null,
+      "unit": "",
+      "info": "Estimated $4–5 billion",
+      "as_of": "2026-08-30",
+      "source_url": "https://kathmandupost.com/national/2026/08/30/relief-priority-but-government-assessing-damage-inflicted-by-bhotekoshi-floods",
+      "source_label": "Kathmandu Post",
+      "note": "Preliminary estimate cited by Finance Minister Swarnim Wagle — roughly Rs 76,200 crore."
+    },
+    {
+      "label": "Districts affected",
+      "label_ne": "",
+      "value": 5,
+      "unit": "districts",
+      "info": "",
+      "as_of": "2026-09-01",
+      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
+      "source_label": "NDRRMA SitRep #01",
+      "note": "Rasuwa and Nuwakot severely affected; Dhading, Gorkha and Chitwan moderately."
+    },
+    {
       "label": "Houses completely damaged",
       "label_ne": "",
       "value": 15000,
@@ -103,17 +114,6 @@
       "source_url": "https://kathmandupost.com/national/2026/08/30/relief-priority-but-government-assessing-damage-inflicted-by-bhotekoshi-floods",
       "source_label": "Kathmandu Post",
       "note": "Government preliminary estimate; a full post-disaster needs assessment is still under way."
-    },
-    {
-      "label": "Rebuilding cost",
-      "label_ne": "",
-      "value": null,
-      "unit": "",
-      "info": "Estimated $4–5 billion",
-      "as_of": "2026-08-30",
-      "source_url": "https://kathmandupost.com/national/2026/08/30/relief-priority-but-government-assessing-damage-inflicted-by-bhotekoshi-floods",
-      "source_label": "Kathmandu Post",
-      "note": "Preliminary estimate cited by Finance Minister Swarnim Wagle — roughly Rs 762 billion."
     },
     {
       "label": "Motorable bridges washed away",
