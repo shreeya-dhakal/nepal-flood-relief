@@ -1,7 +1,7 @@
 {
-  "as_of": "2026-09-01",
-  "source_url": "",
-  "source_label": "",
+  "as_of": "2026-09-02",
+  "source_url": "https://kathmandupost.com/national/2026/09/02/nepal-flood-death-toll-rises-to-1-127-as-4-858-remain-missing",
+  "source_label": "Kathmandu Post",
   "human": [
     {
       "label": "People affected",
@@ -17,24 +17,24 @@
     {
       "label": "Killed",
       "label_ne": "",
-      "value": 1050,
+      "value": 1127,
       "unit": "people",
       "info": "",
-      "as_of": "2026-09-01",
-      "source_url": "https://kathmandupost.com/national/2026/09/01/1-6-million-affected-by-bhotekoshi-floods-says-government-report",
+      "as_of": "2026-09-02",
+      "source_url": "https://kathmandupost.com/national/2026/09/02/nepal-flood-death-toll-rises-to-1-127-as-4-858-remain-missing",
       "source_label": "Kathmandu Post",
-      "note": ""
+      "note": "Nepal Police count as of 5am, 2 September: Chitwan 348, Nawalparasi East 217, Nawalparasi West 190, Nuwakot 155, Gorkha 66, Dhading 59, Rasuwa 45, Tanahun 38, and 9 recovered in India. 1,113 have been through postmortem; 911 remain unidentified and are listed on the Nepal Police website."
     },
     {
       "label": "Missing",
       "label_ne": "",
-      "value": 3916,
+      "value": 4858,
       "unit": "people",
       "info": "",
-      "as_of": "2026-09-01",
-      "source_url": "https://kathmandupost.com/national/2026/09/01/1-6-million-affected-by-bhotekoshi-floods-says-government-report",
+      "as_of": "2026-09-02",
+      "source_url": "https://kathmandupost.com/national/2026/09/02/nepal-flood-death-toll-rises-to-1-127-as-4-858-remain-missing",
       "source_label": "Kathmandu Post",
-      "note": "Reported missing from 62 districts."
+      "note": "Reported missing to Nepal Police. The NDRRMA put the figure at 3,916 across 62 districts a day earlier."
     },
     {
       "label": "Rescued",
