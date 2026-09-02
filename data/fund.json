@@ -1,0 +1,39 @@
+{
+  "name": "Prime Minister's Disaster Relief Fund",
+  "name_ne": "",
+  "currency": "NPR",
+  "received": {
+    "amount": 6360000000,
+    "as_of": "2026-09-01",
+    "source_url": "https://radionepalonline.com/en/2026/09/01/435208.html",
+    "source_label": "Radio Nepal",
+    "note": "Across nine commercial banks, per the Office of the Prime Minister and Council of Ministers. A further USD 6.11 million sits in dollar accounts at Himalayan Bank and Laxmi Bank, not included here."
+  },
+  "dispatched": {
+    "amount": 1000000000,
+    "as_of": "2026-09-01",
+    "source_url": "https://radionepalonline.com/en/2026/09/01/435208.html",
+    "source_label": "Radio Nepal",
+    "note": "Released for flood-affected areas, leaving a balance of Rs 5.36 billion."
+  },
+  "history": [
+    {
+      "date": "2026-08-28",
+      "received": 1910000000,
+      "dispatched": null,
+      "source_url": "https://english.himalayatimes.com.np/2026/08/100427/"
+    },
+    {
+      "date": "2026-08-30",
+      "received": 5044600000,
+      "dispatched": null,
+      "source_url": "https://www.fiscalnepal.com/2026/08/30/27913/prime-ministers-disaster-relief-fund-crosses-rs-5-billion-as-flood-aid-pours-in/"
+    },
+    {
+      "date": "2026-09-01",
+      "received": 6360000000,
+      "dispatched": 1000000000,
+      "source_url": "https://radionepalonline.com/en/2026/09/01/435208.html"
+    }
+  ]
+}

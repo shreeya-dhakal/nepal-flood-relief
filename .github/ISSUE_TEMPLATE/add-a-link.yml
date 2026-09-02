@@ -1,0 +1,38 @@
+name: Add a link
+description: A tracker, spreadsheet, fundraiser, or relief effort worth listing.
+labels: [resource]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Link
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: What is it called?
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of thing is it?
+      options:
+        - tracker
+        - fundraiser
+        - relief-effort
+        - dataset
+        - map
+        - news
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should people trust it?
+      description: Who runs it, and how do you know it is real? This is the part that decides whether it gets listed.
+    validations:
+      required: true

@@ -1,0 +1,174 @@
+{
+  "as_of": "2026-09-01",
+  "source_url": "",
+  "source_label": "",
+  "human": [
+    {
+      "label": "Killed",
+      "label_ne": "",
+      "value": 1050,
+      "unit": "people",
+      "info": "",
+      "as_of": "2026-09-01",
+      "source_url": "https://kathmandupost.com/national/2026/09/01/1-6-million-affected-by-bhotekoshi-floods-says-government-report",
+      "source_label": "Kathmandu Post",
+      "note": ""
+    },
+    {
+      "label": "Missing",
+      "label_ne": "",
+      "value": 3916,
+      "unit": "people",
+      "info": "",
+      "as_of": "2026-09-01",
+      "source_url": "https://kathmandupost.com/national/2026/09/01/1-6-million-affected-by-bhotekoshi-floods-says-government-report",
+      "source_label": "Kathmandu Post",
+      "note": "Reported missing from 62 districts."
+    },
+    {
+      "label": "Rescued",
+      "label_ne": "",
+      "value": 11814,
+      "unit": "people",
+      "info": "",
+      "as_of": "2026-09-01",
+      "source_url": "https://kathmandupost.com/national/2026/09/01/1-6-million-affected-by-bhotekoshi-floods-says-government-report",
+      "source_label": "Kathmandu Post",
+      "note": "Includes 253 foreign nationals; 3,702 by air across 573 flights."
+    },
+    {
+      "label": "Injured",
+      "label_ne": "",
+      "value": 292,
+      "unit": "people",
+      "info": "",
+      "as_of": "2026-09-01",
+      "source_url": "https://kathmandupost.com/national/2026/09/01/1-6-million-affected-by-bhotekoshi-floods-says-government-report",
+      "source_label": "Kathmandu Post",
+      "note": "79 still under treatment, 210 discharged."
+    },
+    {
+      "label": "People affected",
+      "label_ne": "",
+      "value": null,
+      "unit": "",
+      "info": "Nearly 1.6 million",
+      "as_of": "2026-09-01",
+      "source_url": "https://kathmandupost.com/national/2026/09/01/1-6-million-affected-by-bhotekoshi-floods-says-government-report",
+      "source_label": "Kathmandu Post",
+      "note": ""
+    },
+    {
+      "label": "Districts affected",
+      "label_ne": "",
+      "value": 5,
+      "unit": "districts",
+      "info": "",
+      "as_of": "2026-09-01",
+      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
+      "source_label": "NDRRMA SitRep #01",
+      "note": "Rasuwa and Nuwakot severely affected; Dhading, Gorkha and Chitwan moderately."
+    },
+    {
+      "label": "Households isolated",
+      "label_ne": "",
+      "value": 3702,
+      "unit": "households",
+      "info": "",
+      "as_of": "2026-09-01",
+      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
+      "source_label": "NDRRMA SitRep #01",
+      "note": "A population of 14,461 in Gosaikunda and Amachhodingmo rural municipalities, Rasuwa."
+    },
+    {
+      "label": "Sheltering in holding centres",
+      "label_ne": "",
+      "value": 3930,
+      "unit": "people",
+      "info": "",
+      "as_of": "2026-09-01",
+      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
+      "source_label": "NDRRMA SitRep #01",
+      "note": "Across 30 centres in Nuwakot and Rasuwa."
+    }
+  ],
+  "infrastructure": [
+    {
+      "label": "Houses completely damaged",
+      "label_ne": "",
+      "value": 15000,
+      "unit": "houses",
+      "info": "",
+      "as_of": "2026-08-30",
+      "source_url": "https://kathmandupost.com/national/2026/08/30/relief-priority-but-government-assessing-damage-inflicted-by-bhotekoshi-floods",
+      "source_label": "Kathmandu Post",
+      "note": "Government preliminary estimate; a full post-disaster needs assessment is still under way."
+    },
+    {
+      "label": "Rebuilding cost",
+      "label_ne": "",
+      "value": null,
+      "unit": "",
+      "info": "Estimated $4–5 billion",
+      "as_of": "2026-08-30",
+      "source_url": "https://kathmandupost.com/national/2026/08/30/relief-priority-but-government-assessing-damage-inflicted-by-bhotekoshi-floods",
+      "source_label": "Kathmandu Post",
+      "note": "Preliminary estimate cited by Finance Minister Swarnim Wagle — roughly Rs 762 billion."
+    },
+    {
+      "label": "Motorable bridges washed away",
+      "label_ne": "",
+      "value": 41,
+      "unit": "bridges",
+      "info": "",
+      "as_of": "2026-09-01",
+      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
+      "source_label": "NDRRMA SitRep #01",
+      "note": "A further 4 bridges damaged."
+    },
+    {
+      "label": "Schools damaged",
+      "label_ne": "",
+      "value": null,
+      "unit": "",
+      "info": "8 fully, 8 partially damaged",
+      "as_of": "2026-09-01",
+      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
+      "source_label": "NDRRMA SitRep #01",
+      "note": "Of 19 schools assessed so far in Rasuwa, Nuwakot and Dhading; 3 reported physically safe."
+    },
+    {
+      "label": "Hydropower facilities damaged",
+      "label_ne": "",
+      "value": null,
+      "unit": "",
+      "info": "13 projects across the Trishuli and Bhote Koshi",
+      "as_of": "2026-09-01",
+      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
+      "source_label": "NDRRMA SitRep #01",
+      "note": "Rasuwagadhi, Rasuwa-Bhotekoshi, Chilime, Langtang Khola, Upper Trishuli 1, 2, 3A and 3B, Mailung Khola, Middle Trishuli Ganga Nadi, Trishuli, Devighat and Super Trishuli."
+    },
+    {
+      "label": "Livestock lost",
+      "label_ne": "",
+      "value": null,
+      "unit": "",
+      "info": "2,035 livestock and 16,500 birds",
+      "as_of": "2026-09-01",
+      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
+      "source_label": "NDRRMA SitRep #01",
+      "note": "Nuwakot preliminary assessment; 4,440 ropani/bigha of crops affected."
+    },
+    {
+      "label": "Roads blocked",
+      "label_ne": "",
+      "value": null,
+      "unit": "",
+      "info": "Prithvi Highway and all main Rasuwa highways",
+      "as_of": "2026-09-01",
+      "source_url": "https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf",
+      "source_label": "NDRRMA SitRep #01",
+      "note": "Prithvi Highway (Mugling–Dhading) obstructed by toe cutting at Krishna Bhir and Parewa Bhir; Trishuli–Mailung–Syabrubesi road cut at Khalte, Uttargaya."
+    }
+  ]
+}

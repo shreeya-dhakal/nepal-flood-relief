@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "name": "Armed Police Force", "name_ne": "सशस्त्र प्रहरी बल", "number": "1114", "coverage": "Nationwide", "note": "", "verified": true },
+    { "name": "Nepal Police", "name_ne": "नेपाल प्रहरी", "number": "100", "coverage": "Nationwide", "note": "", "verified": true },
+    { "name": "Ambulance", "name_ne": "एम्बुलेन्स", "number": "102", "coverage": "Nationwide", "note": "", "verified": true },
+    { "name": "District Emergency Operation Center (DEOC)", "name_ne": "जिल्ला आपतकालीन कार्यसञ्चालन केन्द्र", "number": "1234", "coverage": "Nationwide", "note": "", "verified": true }
+  ]
+}

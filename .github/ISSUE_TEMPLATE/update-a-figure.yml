@@ -1,0 +1,36 @@
+name: Update a figure
+description: A new number for the relief fund, or a dispatch from it.
+labels: [figure]
+body:
+  - type: dropdown
+    id: which
+    attributes:
+      label: Which number?
+      options:
+        - Received into the fund
+        - Dispatched from the fund
+        - A specific dispatch (amount to a district)
+    validations:
+      required: true
+  - type: input
+    id: amount
+    attributes:
+      label: Amount
+      placeholder: "1234567 (digits only, no commas or 'Rs')"
+    validations:
+      required: true
+  - type: input
+    id: as_of
+    attributes:
+      label: As of which date?
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source link
+      description: A government notice, a news report, an official post. A number without one cannot go on the page.
+      placeholder: https://
+    validations:
+      required: true

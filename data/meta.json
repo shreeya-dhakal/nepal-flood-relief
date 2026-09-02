@@ -1,0 +1,9 @@
+{
+  "event": "NEPAL (RASUWA) FLOOD 2026",
+  "event_ne": "",
+  "status": "active",
+  "summary": "This is a crowdsourced tracker for the Nepal (Rasuwa) flood 2026. We are tracking the impact of the flood in Nepal, the donation PM Disaster Relief Fund has received, what has been dispatched, and where to give.",
+  "summary_ne": "",
+  "as_of": "2026-09-01",
+  "disclaimer": "Every figure here is copied from a public source with a link. Numbers lag reality, and corrections are welcome, please open an issue or a pull request on the data repo."
+}
